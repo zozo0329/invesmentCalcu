@@ -1,6 +1,6 @@
 import React from "react";
 import "./Table.css";
-const Table = () => {
+const Table = (props) => {
   return (
     <div className="Table-container">
       <table className="result">
@@ -15,11 +15,15 @@ const Table = () => {
         </thead>
         <tbody>
           <tr>
-            <td>YEAR NUMBER</td>
-            <td>TOTAL SAVINGS END OF YEAR</td>
-            <td>INTEREST GAINED IN YEAR</td>
-            <td>TOTAL INTEREST GAINED</td>
-            <td>TOTAL INVESTED CAPITAL</td>
+            <td>{props.year}</td>
+            <td>{props.savingsEndOfYear}</td>
+            <td>{props.yearlyInterest}</td>
+            <td>
+              {props.savingsEndOfYear -
+                props.initialInvesment -
+                props.yearlyContri * props.year}
+            </td>
+            <td>{props.initialInvesment + props.yearlyContri * props.year}</td>
           </tr>
         </tbody>
       </table>
