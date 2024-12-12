@@ -34,14 +34,21 @@ function App() {
 
   return (
     <div className="App-container">
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-      <Header />
-      <FormCal onCalculate={calculateHandler} />
-      {!userInput && <p className="IFNODATA">No data for now.</p>}
-      {userInput && (
-        <Table data={yearlyData} initialInvesment={userInput.currentSavings} />
-      )}
+      <div>
+        <Header />
+      </div>
+      <div>
+        <FormCal onCalculate={calculateHandler} />
+      </div>
+      <div>
+        {!userInput && <p className="IFNODATA">No data for now.</p>}
+        {userInput && (
+          <Table
+            data={yearlyData}
+            initialInvesment={userInput.currentSavings}
+          />
+        )}
+      </div>
     </div>
   );
 }
